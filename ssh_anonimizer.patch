@@ -1,0 +1,16 @@
+diff -Naur a/sshd.c b/sshd.c
+--- a/sshd.c	2015-12-01 19:13:34.000000000 +0000
++++ b/sshd.c	2015-12-01 19:59:35.184017312 +0000
+@@ -442,11 +442,7 @@
+ 		minor = PROTOCOL_MINOR_1;
+ 	}
+ 
+-	xasprintf(&server_version_string, "SSH-%d.%d-%.100s%s%s%s",
+-	    major, minor,
+-	    options.debian_banner ? SSH_RELEASE : SSH_RELEASE_MINIMUM,
+-	    *options.version_addendum == '\0' ? "" : " ",
+-	    options.version_addendum, newline);
++	xasprintf(&server_version_string, "SSH-2.0-BAZINGA%s", newline);
+ 
+ 	/* Send our protocol version identification. */
+ 	if (roaming_atomicio(vwrite, sock_out, server_version_string,
